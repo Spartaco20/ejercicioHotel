@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:html5="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Hotel</title>
+        
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+        
+    </h:head>
+    <h:body>
+        <div class="container">
+        <!-- Page Content goes here -->
+            <div class="row">
+                <h:form>
+                    <div class="col-md-12" style="padding-top: 20px;">
+                        <h3 style="text-align: center;">Sección Hoteles - Registro</h3>
+                    </div>  
+                    <div class="col-md-12" style="padding-top: 30px;">
+                        <label><strong>Nombre Hotel</strong></label>
+                        <h:selectOneMenu value="#{procesoHotel.hotel.nombre}" class="form-control">
+                            <f:selectItem itemValue="Grand Hyatt" itemLabel="Grand Hyatt" />
+                            <f:selectItem itemValue="Casa Pestagua" itemLabel="Casa Pestagua" />
+                            <f:selectItem itemValue="La Nube Posada" itemLabel="La Nube Posada" />
+                            <f:selectItem itemValue="Posada San Antonio" itemLabel="Posada San Antonio" />
+                        </h:selectOneMenu>
+                    </div>
+                    <div class="col-md-12">
+                        <label><strong>Dirección</strong></label>
+                        <h:selectOneMenu value="#{procesoHotel.hotel.direccion}" class="form-control">
+                            <f:selectItem itemValue="Cll 24a # 57 - 60" itemLabel="Cll 24a # 57 - 60" />
+                            <f:selectItem itemValue="Santo Domingo, 33 - 63" itemLabel="Santo Domingo, 33 - 63" />
+                            <f:selectItem itemValue="Cll 7 # 7 - 39" itemLabel="Cll 7 # 7 - 39" />
+                            <f:selectItem itemValue="Cra. 8 # 11 - 61" itemLabel="Cra. 8 # 11 - 61" />
+                        </h:selectOneMenu>
+                    </div>
+                    <div class="col-md-12">
+                        <label><strong>Ciudad</strong></label>
+                        <h:selectOneMenu value="#{procesoHotel.hotel.ciudad}" class="form-control">
+                            <f:selectItem itemValue="Bogota" itemLabel="Bogota" />
+                            <f:selectItem itemValue="Cartagena" itemLabel="Cartagena" />
+                            <f:selectItem itemValue="Santander" itemLabel="Santander" />
+                            <f:selectItem itemValue="Villa de Leyva" itemLabel="Villa de Leyva" />
+                        </h:selectOneMenu>
+                    </div>
+                    <div class="col-md-12">
+                        <label><strong>Barrio</strong></label>
+                        <h:selectOneMenu value="#{procesoHotel.hotel.barrio}" class="form-control">
+                            <f:selectItem itemValue="Teusaquillo" itemLabel="Teusaquillo" />
+                            <f:selectItem itemValue="Santo Domingo" itemLabel="Santo Domingo" />
+                            <f:selectItem itemValue="Barichara" itemLabel="Barichara" />
+                            <f:selectItem itemValue="Plaza de Nariño" itemLabel="Plaza de Nariño" />
+                        </h:selectOneMenu>
+                    </div>
+                    <div class="col-md-12">
+                        <label><strong>Telefono</strong></label>
+                        <h:selectOneMenu value="#{procesoHotel.hotel.telefono}" class="form-control">
+                            <f:selectItem itemValue="6541234" itemLabel="6541234" />
+                            <f:selectItem itemValue="6649510" itemLabel="6649510" />
+                            <f:selectItem itemValue="7267161" itemLabel="7267161" />
+                            <f:selectItem itemValue="7320538" itemLabel="7320538" />
+                        </h:selectOneMenu>
+                    </div>
+                    <div class="col-md-12">
+                        <label><strong>Tipo Habitación</strong></label>
+                        <h:selectOneMenu value="#{procesoHotel.hotel.tipoHabitacion}" class="form-control">
+                            <f:selectItem itemValue="Simple" itemLabel="Simple" />
+                            <f:selectItem itemValue="Doble" itemLabel="Doble" />
+                            <f:selectItem itemValue="Suite" itemLabel="Suite" />
+                        </h:selectOneMenu>
+                    </div>
+                    <div class="col-md-12">
+                        <label><strong>Fecha de Reserva - Inicio</strong></label>
+                        <h:inputText html5:type="date" value="#{procesoHotel.hotel.fechaInicio}" class="form-control"/>
+                        <label><strong>Fecha de Reserva - Salida</strong></label>
+                        <h:inputText html5:type="date" value="#{procesoHotel.hotel.fechaSalida}" class="form-control"/>
+                    </div>
+                    <div class="col-md-12">
+                        <h:commandButton type="submit" action="#{procesoHotel.reservaHotel()}" value="Guardar" class="btn btn-primary" style="margin: 15px;"/>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                            Consultar Detalle Hotel
+                        </button>
+                        <a href="index_huesped.xhtml"><button type="button" class="btn btn-outline-primary" style="margin: 15px;">Registrar Huésped</button></a>
+                        
+                        
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalCenterTitle"></h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h3 style="text-align: center;">Reserva de Hotel</h3>
+                                        ------------------------------------------------------------------------
+                                        <p><strong>Nombre Hotel</strong>: #{procesoHotel.hotel.nombre}</p>
+                                        <p><strong>Dirección</strong>: #{procesoHotel.hotel.direccion}</p>
+                                        <p><strong>Ciudad</strong>: #{procesoHotel.hotel.ciudad}</p>
+                                        <p><strong>Barrio</strong>: #{procesoHotel.hotel.barrio}</p>
+                                        <p><strong>Telefono</strong>: #{procesoHotel.hotel.telefono}</p>
+                                        <p><strong>Tipo Habitación</strong>: #{procesoHotel.hotel.tipoHabitacion}</p>
+                                        <p><strong>Fecha de Reserva - Inicio</strong>: #{procesoHotel.hotel.fechaInicio}</p>
+                                        <p><strong>Fecha de Reserva - Salida</strong>: #{procesoHotel.hotel.fechaSalida}</p>
+                                        ------------------------------------------------------------------------
+                                        <h3 style="text-align: center;">Detalles de la Habitación</h3>
+                                        <p><strong>Número Habitación</strong>: #{procesoHotel.hotel.numeroHabitacion}</p>
+                                        <p><strong>Baño</strong>: #{procesoHotel.hotel.banoPrivado}</p>
+                                        <p><strong>Teléfono Tipo</strong>: #{procesoHotel.hotel.telefonoHabitacion}</p>
+                                        <p><strong>Calefacción</strong>: #{procesoHotel.hotel.calefaccion}</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </h:body>
+</html>
+

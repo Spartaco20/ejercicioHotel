@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:html5="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Hotel</title>
+        
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+        
+    </h:head>
+    <h:body>
+        <div class="container">
+        <!-- Page Content goes here -->
+            <div class="row">
+                <h:form>
+                    <div class="col-md-12" style="padding-top: 20px;">
+                        <h3 style="text-align: center;">Sección Hoteles - Registro Huésped</h3>
+                    </div>  
+                    <div class="col-md-12" style="padding-top: 30px;">
+                        <label for="nombre"><strong>Nombre y Apellido </strong></label>
+                        <h:inputText id="nombre" maxlength="30" value="#{procesoHotel.huesped.nombreApellido}" class="form-control col-xs-12"/>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="direccion"><strong>Dirección</strong></label>
+                        <h:inputText id="direccion" maxlength="20" value="#{procesoHotel.huesped.direccion}" class="form-control"/>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="profesion"><strong>Profesión</strong></label>
+                        <h:inputText id="profesion" maxlength="15" value="#{procesoHotel.huesped.profesion}" class="form-control"/>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="estado"><strong>Estado Civil</strong></label>
+                        <h:selectOneMenu value="#{procesoHotel.huesped.estadoCivil}" class="form-control">
+                            <f:selectItem itemValue="Soltero" itemLabel="Soltero(a)" />
+                            <f:selectItem itemValue="Casado" itemLabel="Casado(a)" />
+                            <f:selectItem itemValue="Viudo" itemLabel="Viudo(a)" />
+                            <f:selectItem itemValue="Separado" itemLabel="Separado(a)" />
+                            <f:selectItem itemValue="Union Libre" itemLabel="Union Libre" />
+                        </h:selectOneMenu>
+                    </div>
+                    <div class="col-md-12">
+                        <label><strong>Programar Despertador (Hora)</strong></label>
+                        <h:inputText html5:type="time" value="#{procesoHotel.huesped.horaDespertador}" class="form-control"/>
+                    </div>
+                    <div class="col-md-12">
+                        <h:commandButton type="submit" action="#{procesoHotel.registrarHuesped()}" value="Guardar" class="btn btn-primary" style="margin: 15px;"/>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                            Consultar Detalle Huésped
+                        </button>
+                        <a href="index_confiteria.xhtml"><button type="button" class="btn btn-outline-primary" style="margin: 15px;">Registrar Confitería</button></a>
+                        
+                        
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalCenterTitle"></h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h3 style="text-align: center;">Registro de Huésped</h3>
+                                        ------------------------------------------------------------------------
+                                        <p><strong>Nombre y Apellido</strong>: #{procesoHotel.huesped.nombreApellido}</p>
+                                        <p><strong>Dirección</strong>: #{procesoHotel.huesped.direccion}</p>
+                                        <p><strong>Profesión</strong>: #{procesoHotel.huesped.profesion}</p>
+                                        <p><strong>Estado Civil</strong>: #{procesoHotel.huesped.estadoCivil}</p>
+                                        <p><strong>Hora Despertador</strong>: #{procesoHotel.huesped.horaDespertador}</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </h:body>
+</html>
+
